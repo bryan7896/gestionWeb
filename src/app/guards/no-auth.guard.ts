@@ -18,7 +18,7 @@ export class NoAuthGuard implements CanActivate {
     return this.globalService.getStorage('user').pipe(
       take(1),
       map((user: any) => {
-        if (user) {
+        if (user.emailh) {
           this.router.navigate(['']);
           return false;
         } else {

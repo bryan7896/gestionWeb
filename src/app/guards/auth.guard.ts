@@ -18,10 +18,10 @@ export class AuthGuard implements CanActivate {
     return this.globalService.getStorage('user').pipe(
       take(1),
       map((user: any) => {
-        if (user) {
+        if (user.emaild) {
           return true;
         } else {
-          this.router.navigate(['/auth']);
+          this.router.navigate(['/auth/login']);
           return false;
         }
       })

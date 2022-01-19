@@ -10,12 +10,15 @@ import { environment } from 'src/environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { effects } from './config/global.effects';
 import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
+    RouterModule,
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
@@ -24,6 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
     }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot(effects),
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
