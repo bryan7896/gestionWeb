@@ -21,14 +21,11 @@ export class GeneralEffects {
         this.actions$.pipe(
             ofType(ActionTypes.getContador),
             exhaustMap(() => {
-                const userInfo = localStorage.getItem("userInfo");
-                console.log('userInfo-->', userInfo)
-                return [new setContador({ contador: {} })]
-                /* return this.apiService.get().pipe(
+                return this.apiService.get().pipe(
                     map(response => {
                         return new setContador({ contador: response })
                     })
-                ); */
+                );
             })
         ), {});
 }
